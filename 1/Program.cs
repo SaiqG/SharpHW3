@@ -20,17 +20,20 @@ while (true) // Зацикливание программы
     }
 
 
-    int Num = NumChecker();
-    if (Num >= 10000 && Num < 100000)
+    int iNum = NumChecker();
+    if (iNum >= 10000 && iNum < 100000)
     {
-        if (Num % 10 == Num / 10000 && Num / 10 % 10 == Num / 1000 % 10)
+        if (iNum % 10 == iNum / 10000 && iNum / 10 % 10 == iNum / 1000 % 10)
         {
-            Console.WriteLine($"{Num} - палиндром");
+            Console.WriteLine($"{iNum} - палиндром");
         }
-        else { Console.WriteLine($"{Num} - не палиндром"); }
+        else
+        {
+            Console.WriteLine($"{iNum} - не палиндром");
+        }
 
     }
-    else Console.WriteLine($"{Num} - не пятизначное");
+    else Console.WriteLine($"{iNum} - не пятизначное");
 
     //Зацикливание программы
     Console.WriteLine("Enter чтобы продолжить / q чтобы выйти");
