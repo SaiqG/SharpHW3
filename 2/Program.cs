@@ -7,11 +7,11 @@ while (true)
         Console.Write("Введите координаты первой точки X Y Z через пробел, запятую или / : ");
 
         string xyz = Console.ReadLine()!;
-        string[] parts = xyz.Split(' ',',','/');
+        string[] parts = xyz.Split(' ', ',', '/');
         Console.Write("Введите координаты второй точки X Y Z через пробел, запятую или / : ");
 
         xyz = Console.ReadLine()!;
-        string[] parts1 = xyz.Split(' ',',','/');
+        string[] parts1 = xyz.Split(' ', ',', '/');
 
         if (parts.Length == parts1.Length && parts.Length == 3)
         {
