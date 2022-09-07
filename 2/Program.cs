@@ -1,43 +1,46 @@
 ﻿// Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
-System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-while (true)
+
+System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");   //Сведение к синтексису, где дробная часть отделяется точкой, а не запятой
+
+while (true)    //зацикливание программы
 {
-    try
+    try     //пробуем выполнить алгоритм
     {
         Console.Write("Введите координаты первой точки X Y Z через пробел, запятую или / : ");
 
-        string xyz = Console.ReadLine()!;
-        string[] parts = xyz.Split(' ',',','/');
+        string xyz = Console.ReadLine()!;    //! уберает предупреждение о null
+        string[] parts = xyz.Split(' ', ',', '/');      //символы, по которым будет разделена строка
+
         Console.Write("Введите координаты второй точки X Y Z через пробел, запятую или / : ");
 
-        xyz = Console.ReadLine()!;
-        string[] parts1 = xyz.Split(' ',',','/');
+        xyz = Console.ReadLine()!;      //используем ту же переменную, для заполнения второй строки
+        string[] parts1 = xyz.Split(' ', ',', '/');
 
-        if (parts.Length == parts1.Length && parts.Length == 3)
+        if (parts.Length == parts1.Length && parts.Length == 3)         //проверка правильности ввода координат, для обеих точек должно быть по 3 координаты
         {
             double sum = 0;
-            for (int i = 0; i < parts.Length; i++)
+            for (int i = 0; i < parts.Length; i++)       //проход по нашим строкам
             {
-                sum = Math.Pow(double.Parse(parts[i]) - double.Parse(parts1[i]), 2) + sum;
+                sum = Math.Pow(double.Parse(parts[i]) - double.Parse(parts1[i]), 2) + sum;      //парсим элементы строк в числа, берем квадратный коремнь разницы и складываем все в оду переменную
             }
 
-            double dis = Math.Sqrt(sum);
+            double dis = Math.Sqrt(sum);        //возводим в квадрат сумму корней, чтоб найти расстояние, можно не вводить новую переменную и обновить sum но для читабельности дабавили новую.
 
             Console.Write($"Расстояние между точками равно: {dis:F3}");
             Console.WriteLine();
         }
-        else
+        else             //если было введено разное количество координат для первой точки и для второй, или введено больше 3х координат
         {
             Console.WriteLine("Некорректные координаты точек.");
             Console.WriteLine("Введите 3 координаты для первой точки и 3 координаты для второй точки.");
         }
     }
-    catch (Exception)
+    catch (Exception)       //если на каком-то шаге не получилось выполнить алгоритм - выводим ошибку
     {
         Console.WriteLine("Упс! Что-то пошло не так, попробуйте ввести корректные данные.");
     }
 
-    //Зацикливание программы
+    //зацикливание программы
     Console.WriteLine("Enter чтобы продолжить / q чтобы выйти");
     ConsoleKeyInfo quite = Console.ReadKey();
     Console.Clear();
