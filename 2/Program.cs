@@ -13,18 +13,18 @@ while (true)
         xyz = Console.ReadLine()!;
         string[] parts1 = xyz.Split(' ');
 
-        int[] dots = new int[6];
+        double sum = 0;
         for (int i = 0; i < 3; i++)
         {
-            dots[i] = int.Parse(parts[i]);
-            dots[i + 3] = int.Parse(parts1[i]);
+            sum = Math.Pow(int.Parse(parts[i]) - int.Parse(parts1[i]), 2) + sum;
         }
-        double dis = Math.Sqrt(Math.Pow(dots[0] - dots[3], 2) + Math.Pow(dots[1] - dots[4], 2) + Math.Pow(dots[2] - dots[5], 2));
 
+        double dis = Math.Sqrt(sum);
+        
         Console.Write($"Расстояние между точками равно: {dis:F3}");
         Console.WriteLine();
     }
-    catch (FormatException)
+    catch (Exception)
     {
         Console.WriteLine("Упс! Что-то пошло не так, попробуйте ввести корректные данные.");
     }
